@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-maps-layout',
   templateUrl: './maps-layout.component.html',
-  styles: [
-  ]
+  styleUrls: ['./maps-layout.component.scss']
 })
 export class MapsLayoutComponent {
 

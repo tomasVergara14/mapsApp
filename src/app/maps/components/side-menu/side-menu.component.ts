@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-side-menu',
+  selector: 'maps-side-menu',
   templateUrl: './side-menu.component.html',
   styles: [
   ]
