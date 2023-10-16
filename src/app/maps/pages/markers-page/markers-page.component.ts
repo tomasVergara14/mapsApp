@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
-import { LngLat, Map } from 'mapbox-gl'
+import { LngLat, Map, Marker } from 'mapbox-gl'
 
 @Component({
   selector: 'app-markers-page',
@@ -23,8 +23,29 @@ export class MarkersPageComponent {
       container: this.divMap?.nativeElement, // container ID
       style: 'mapbox://styles/mapbox/streets-v12', // style URL
       center: this.lngLat, // starting position [lng, lat]
-      zoom: 10, // starting zoom
+      zoom: 13, // starting zoom
       });
+
+  }
+
+  createMarker(){
+    if( !this.map) return;
+
+    const color = '#xxxxxx'.replace(/x/g, y=>(Math.random()*16|0).toString(16));
+    const lngLat = this.map.getCenter();
+
+    this.addMarker( lngLat, color);
+  }
+
+  addMarker( lngLat: LngLat, color: string ){
+    if( !this.map) return;
+
+    const marker = new Marker({
+      color: color,
+      draggable: true
+    })
+    .setLngLat(lngLat)
+    .addTo( this.map );
 
   }
 
