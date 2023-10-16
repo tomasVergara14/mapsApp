@@ -1,31 +1,28 @@
-<<<<<<< HEAD
 # MapsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+No usar directamente en AngularCLI (a menos que esten creadas las variables de entorno)
+Las variables de entorno se crean basados en el '.env'
 
-## Development server
+## Pasos:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1- Clonar el '.env.template' y renombrarlo '.env'
+2- Llenar las variables de entorno acorde
+3- Crear Angular Envs ( opcional al correr el paso 4/5 se generan) 
 
-## Code scaffolding
+```
+npm run envs
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+4- Development ejecutar
 
-## Build
+```
+npm run start
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+5- Para prod ejecutar
 
-## Running unit tests
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+npm run build
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-=======
-# mapsApp
->>>>>>> abdd1bad0145ad440a9ec4652925b74e660eb155
+```
