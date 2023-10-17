@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 
 import { LngLat, Map, Marker } from 'mapbox-gl'
 
@@ -17,7 +17,7 @@ interface PlainMarker{
   templateUrl: './markers-page.component.html',
   styleUrls:['./markers-page.component.scss']
 })
-export class MarkersPageComponent {
+export class MarkersPageComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('map')
   public divMap?: ElementRef;
@@ -36,6 +36,8 @@ export class MarkersPageComponent {
       center: this.lngLat, // starting position [lng, lat]
       zoom: 13, // starting zoom
       });
+
+    this.readFromLocalStorage();
 
   }
 
@@ -61,6 +63,10 @@ export class MarkersPageComponent {
     this.markers.push({ color, marker })
 
     this.saveToLocalStorage()
+    
+    marker.on('dragend', ()=>{
+      this.saveToLocalStorage();
+    });
 
   }
 
@@ -98,5 +104,9 @@ export class MarkersPageComponent {
 
       this.addMarker( coords, color)
     });
+  }
+
+  ngOnDestroy(): void {
+    this.map?.remove();
   }
 }
