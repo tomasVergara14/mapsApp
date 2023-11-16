@@ -7,7 +7,7 @@ import * as mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-g
 
 import { MapsRoutingModule } from './maps-routing.module';
 import { MiniMapComponent } from './components/mini-map/mini-map.component';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { SideAloneComponent } from '../alone/components/side-menu/side-menu.component';
 import { MapsLayoutComponent } from './layout/maps-layout/maps-layout.component';
 import { FullScreenPageComponent } from './pages/full-screen-page/full-screen-page.component';
 import { MarkersPageComponent } from './pages/markers-page/markers-page.component';
@@ -19,7 +19,6 @@ import { CounterAloneComponent } from '../alone/components/counter-alone/counter
 @NgModule({
   declarations: [
     MiniMapComponent,
-    SideMenuComponent,
     MapsLayoutComponent,
     FullScreenPageComponent,
     MarkersPageComponent,
@@ -28,8 +27,9 @@ import { CounterAloneComponent } from '../alone/components/counter-alone/counter
   ],
   imports: [
     CommonModule,
-    MapsRoutingModule,
     CounterAloneComponent,
+    MapsRoutingModule,
+    SideAloneComponent,
   ]
 })
 export class MapsModule { }
